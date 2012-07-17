@@ -1,0 +1,45 @@
+{
+   "abstract" : "Convert currencies using KlikBCA",
+   "author" : [
+      "Steven Haryanto <stevenharyanto@gmail.com>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300006, CPAN::Meta::Converter version 2.113640",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Finance-Currency-Convert-KlikBCA",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "Module::Build" : "0.3601"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "LWP::Simple" : 0,
+            "Log::Any" : 0,
+            "Parse::Number::ID" : 0,
+            "perl" : "5.010000"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "http://metacpan.org/release/Finance-Currency-Convert-KlikBCA",
+      "repository" : {
+         "url" : "http://github.com/sharyanto/perl-Finance-Currency-Convert-KlikBCA"
+      }
+   },
+   "version" : "0.01"
+}
+

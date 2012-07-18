@@ -7,7 +7,7 @@ use Log::Any '$log';
 use LWP::Simple;
 use Parse::Number::ID qw(parse_number_id);
 
-our $VERSION = '0.01'; # VERSION
+our $VERSION = '0.02'; # VERSION
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(convert_currency);
@@ -80,6 +80,65 @@ sub convert_currency {
 
 __END__
 =pod
+
+=head1 NAME
+
+Finance::Currency::Convert::KlikBCA - Convert currencies using KlikBCA
+
+=head1 VERSION
+
+version 0.02
+
+=head1 SYNOPSIS
+
+ use Finance::Currency::Convert::KlikBCA qw(convert_currency);
+
+ printf "1 USD = Rp %.0f\n", convert_currency(1, 'USD', 'IDR');
+
+=head1 TODO
+
+=over 4
+
+=item * Currently can only handle conversion I<to> IDR
+
+=item * Parse last update time
+
+=back
+
+=head1 SEE ALSO
+
+L<http://www.klikbca.com/>
+
+=head1 DESCRIPTION
+
+
+This module has L<Rinci> metadata.
+
+=head1 FUNCTIONS
+
+
+None are exported by default, but they are exportable.
+
+=head2 get_currencies() -> [status, msg, result, meta]
+
+Extract data from KlikBCA page.
+
+No arguments.
+
+Return value:
+
+Returns an enveloped result (an array). First element (status) is an integer containing HTTP status code (200 means OK, 4xx caller error, 5xx function error). Second element (msg) is a string containing error message, or 'OK' if status is 200. Third element (result) is optional, the actual result. Fourth element (meta) is called result metadata and is optional, a hash that contains extra information.
+
+=head1 AUTHOR
+
+Steven Haryanto <stevenharyanto@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Steven Haryanto.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
 

@@ -2,26 +2,30 @@ NAME
     Finance::Currency::Convert::KlikBCA - Convert currencies using KlikBCA
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
      use Finance::Currency::Convert::KlikBCA qw(convert_currency);
 
      printf "1 USD = Rp %.0f\n", convert_currency(1, 'USD', 'IDR');
 
-TODO
-    *   Currently can only handle conversion *to* IDR
-
-    *   Parse last update time
-
-SEE ALSO
-    <http://www.klikbca.com/>
-
 DESCRIPTION
-    This module has Rinci metadata.
-
 FUNCTIONS
-    None are exported by default, but they are exportable.
+  convert_currency($amount, $from, $to) => NUM
+    Currently can only handle conversion *to* IDR. Dies if given other
+    currency.
+
+    Will warn if failed getting currencies from the webpage.
+
+    Currency rate is cached.
+
+    Currently uses the Bank Notes rate.
+
+    Will return undef if no conversion rate is available for the requested
+    currency.
+
+    Use get_currencies(), which actually retrieves and scrapes the source
+    web page, if you need the more complete result.
 
   get_currencies() -> [status, msg, result, meta]
     Extract data from KlikBCA page.
@@ -37,11 +41,33 @@ FUNCTIONS
     the actual result. Fourth element (meta) is called result metadata and
     is optional, a hash that contains extra information.
 
+TODO
+    *   Parse last update time
+
+SEE ALSO
+    <http://www.klikbca.com/>
+
+HOMEPAGE
+    Please visit the project's homepage at
+    <https://metacpan.org/release/Finance-Currency-Convert-KlikBCA>.
+
+SOURCE
+    Source repository is at
+    <https://github.com/sharyanto/perl-Finance-Currency-Convert-KlikBCA>.
+
+BUGS
+    Please report any bugs or feature requests on the bugtracker website
+    <https://rt.cpan.org/Public/Dist/Display.html?Name=Finance-Currency-Conv
+    ert-KlikBCA>
+
+    When submitting a bug or request, please include a test-file or a patch
+    to an existing test-file that illustrates the bug or desired feature.
+
 AUTHOR
     Steven Haryanto <stevenharyanto@gmail.com>
 
 COPYRIGHT AND LICENSE
-    This software is copyright (c) 2012 by Steven Haryanto.
+    This software is copyright (c) 2014 by Steven Haryanto.
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.

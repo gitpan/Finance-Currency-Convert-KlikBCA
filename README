@@ -1,8 +1,9 @@
 NAME
-    Finance::Currency::Convert::KlikBCA - Convert currencies using KlikBCA
+    Finance::Currency::Convert::KlikBCA - Convert currencies using data from
+    KlikBCA/BCA
 
 VERSION
-    version 0.03
+    version 0.04
 
 SYNOPSIS
      use Finance::Currency::Convert::KlikBCA qw(convert_currency);
@@ -17,7 +18,8 @@ FUNCTIONS
 
     Will warn if failed getting currencies from the webpage.
 
-    Currency rate is cached.
+    Currency rate is not cached (retrieved from the website every time).
+    Employ your own caching.
 
     Currently uses the Bank Notes rate.
 
@@ -28,7 +30,7 @@ FUNCTIONS
     web page, if you need the more complete result.
 
   get_currencies() -> [status, msg, result, meta]
-    Extract data from KlikBCA page.
+    Extract data from KlikBCA/BCA page.
 
     No arguments.
 

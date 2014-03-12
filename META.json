@@ -1,5 +1,5 @@
 {
-   "abstract" : "Convert currencies using KlikBCA",
+   "abstract" : "Convert currencies using data from KlikBCA/BCA",
    "author" : [
       "Steven Haryanto <stevenharyanto@gmail.com>"
    ],
@@ -41,6 +41,8 @@
             "File::Spec" : "0",
             "IO::Handle" : "0",
             "IPC::Open3" : "0",
+            "Perinci::Import" : "0",
+            "Perinci::Sub::Property::exit_on_error" : "0",
             "Test::More" : "0.98"
          }
       }
@@ -57,10 +59,10 @@
          "web" : "https://github.com/sharyanto/perl-Finance-Currency-Convert-KlikBCA"
       }
    },
-   "version" : "0.03",
+   "version" : "0.04",
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.010001"
+         "version" : "5.018002"
       },
       "plugins" : [
          {

@@ -7,7 +7,7 @@ use Log::Any '$log';
 use LWP::Simple;
 use Parse::Number::ID qw(parse_number_id);
 
-our $VERSION = '0.05'; # VERSION
+our $VERSION = '0.06'; # VERSION
 
 our @ISA = qw(Exporter);
 our @EXPORT_OK = qw(get_currencies convert_currency);
@@ -27,7 +27,7 @@ sub get_currencies {
     if ($args{_page_content}) {
         $page = $args{_page_content};
     } else {
-        $page = get "http://www.bca.co.id/id/biaya-limit/kurs_counter_bca/kurs_counter_bca_landing.jsp"
+        $page = get "http://www.bca.co.id/id/kurs-sukubunga/kurs_counter_bca/kurs_counter_bca_landing.jsp"
             or return [500, "Can't retrieve BCA page"];
     }
 
@@ -104,6 +104,29 @@ sub get_currencies {
 # used for testing only
 our $_get_res;
 
+$SPEC{convert_currency} = {
+    summary => 'Convert currency using KlikBCA',
+    args => {
+        n => {
+            schema=>'float*',
+            req => 1,
+            pos => 0,
+        },
+        from => {
+            schema=>'str*',
+            req => 1,
+            pos => 1,
+        },
+        to => {
+            schema=>'str*',
+            req => 1,
+            pos => 2,
+        },
+    },
+    args_as => 'array',
+    v => 1.1,
+    result_naked => 1,
+};
 sub convert_currency {
     my ($n, $from, $to) = @_;
 
@@ -139,7 +162,7 @@ Finance::Currency::Convert::KlikBCA - Convert currencies using data from KlikBCA
 
 =head1 VERSION
 
-This document describes version 0.05 of Finance::Currency::Convert::KlikBCA (from Perl distribution Finance-Currency-Convert-KlikBCA), released on 2014-05-17.
+This document describes version 0.06 of Finance::Currency::Convert::KlikBCA (from Perl distribution Finance-Currency-Convert-KlikBCA), released on 2014-08-16.
 
 =head1 SYNOPSIS
 
@@ -168,6 +191,27 @@ Use get_currencies(), which actually retrieves and scrapes the source web page,
 if you need the more complete result.
 
 
+=head2 convert_currency($n, $from, $to) -> any
+
+Convert currency using KlikBCA.
+
+Arguments ('*' denotes required arguments):
+
+=over 4
+
+=item * B<from>* => I<str>
+
+=item * B<n>* => I<float>
+
+=item * B<to>* => I<str>
+
+=back
+
+Return value:
+
+ (any)
+
+
 =head2 get_currencies() -> [status, msg, result, meta]
 
 Extract data from KlikBCA/BCA page.
@@ -184,6 +228,8 @@ First element (status) is an integer containing HTTP status code
 200. Third element (result) is optional, the actual result. Fourth
 element (meta) is called result metadata and is optional, a hash
 that contains extra information.
+
+ (any)
 
 =head1 TODO
 

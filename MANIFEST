@@ -6,6 +6,7 @@ META.json
 META.yml
 Makefile.PL
 README
+bin/convert-currency-using-klikbca
 dist.ini
 lib/Finance/Currency/Convert/KlikBCA.pm
 t/00-compile.t

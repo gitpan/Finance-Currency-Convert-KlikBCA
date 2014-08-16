@@ -17,13 +17,17 @@ my %WriteMakefileArgs = (
     "ExtUtils::MakeMaker" => "6.30"
   },
   "DISTNAME" => "Finance-Currency-Convert-KlikBCA",
-  "EXE_FILES" => [],
+  "EXE_FILES" => [
+    "bin/convert-currency-using-klikbca"
+  ],
   "LICENSE" => "perl",
   "NAME" => "Finance::Currency::Convert::KlikBCA",
   "PREREQ_PM" => {
     "LWP::Simple" => 0,
     "Log::Any" => 0,
-    "Parse::Number::ID" => 0
+    "Parse::Number::ID" => 0,
+    "Perinci::CmdLine::Any" => "0.06",
+    "Rinci" => "v1.1.0"
   },
   "TEST_REQUIRES" => {
     "File::Slurp::Tiny" => 0,
@@ -34,7 +38,7 @@ my %WriteMakefileArgs = (
     "Perinci::Sub::Property::exit_on_error" => 0,
     "Test::More" => "0.98"
   },
-  "VERSION" => "0.05",
+  "VERSION" => "0.06",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -49,8 +53,10 @@ my %FallbackPrereqs = (
   "LWP::Simple" => 0,
   "Log::Any" => 0,
   "Parse::Number::ID" => 0,
+  "Perinci::CmdLine::Any" => "0.06",
   "Perinci::Import" => 0,
   "Perinci::Sub::Property::exit_on_error" => 0,
+  "Rinci" => "v1.1.0",
   "Test::More" => "0.98"
 );
 

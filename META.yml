@@ -23,16 +23,22 @@ requires:
   LWP::Simple: '0'
   Log::Any: '0'
   Parse::Number::ID: '0'
+  Perinci::CmdLine::Any: '0.06'
+  Rinci: v1.1.0
   perl: '5.010001'
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Finance-Currency-Convert-KlikBCA
   homepage: https://metacpan.org/release/Finance-Currency-Convert-KlikBCA
   repository: git://github.com/sharyanto/perl-Finance-Currency-Convert-KlikBCA.git
-version: '0.05'
+version: '0.06'
 x_Dist_Zilla:
   perl:
     version: '5.018001'
   plugins:
+    -
+      class: Dist::Zilla::Plugin::Rinci::ScriptFromFunc
+      name: Rinci::ScriptFromFunc
+      version: '0.01'
     -
       class: Dist::Zilla::Plugin::GatherDir
       name: '@Author::SHARYANTO/@Filter/GatherDir'

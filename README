@@ -3,9 +3,9 @@ NAME
     KlikBCA/BCA
 
 VERSION
-    This document describes version 0.05 of
+    This document describes version 0.06 of
     Finance::Currency::Convert::KlikBCA (from Perl distribution
-    Finance-Currency-Convert-KlikBCA), released on 2014-05-17.
+    Finance-Currency-Convert-KlikBCA), released on 2014-08-16.
 
 SYNOPSIS
      use Finance::Currency::Convert::KlikBCA qw(convert_currency);
@@ -31,6 +31,21 @@ FUNCTIONS
     Use get_currencies(), which actually retrieves and scrapes the source
     web page, if you need the more complete result.
 
+  convert_currency($n, $from, $to) -> any
+    Convert currency using KlikBCA.
+
+    Arguments ('*' denotes required arguments):
+
+    *   from* => *str*
+
+    *   n* => *float*
+
+    *   to* => *str*
+
+    Return value:
+
+     (any)
+
   get_currencies() -> [status, msg, result, meta]
     Extract data from KlikBCA/BCA page.
 
@@ -46,6 +61,8 @@ FUNCTIONS
     element (result) is optional, the actual result. Fourth element (meta)
     is called result metadata and is optional, a hash that contains extra
     information.
+
+     (any)
 
 TODO
     *   Parse last update time
